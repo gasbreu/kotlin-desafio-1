@@ -5,22 +5,21 @@ class Usuários(val nome: String, val id: Int) {
         val usuarios = mutableListOf<Usuários>()
             usuarios.add(usuario)
     }
-
 }
 
 data class ConteudoEducacional(var nome: String, val duracao: Int = 60)
 
-data class Formacao(val nome: String, var conteudos: List<ConteudoEducacional>) {
+    val contEdu1 = ConteudoEducacional("Conhecendo o Kotlin e Sua Documentação Oficial", 60)
+    val contEdu2 = ConteudoEducacional("Princípios de Interface de Usuário e Layouts Android", 120)
+    val contEdu3 = ConteudoEducacional("Visão Geral Sobre o Android Jetpack", 120)
 
-    val inscritos = mutableListOf<Usuario>()
-    
-    fun matricular(usuario: Usuario) {
-        TODO("Utilize o parâmetro $usuario para simular uma matrícula (usar a lista de $inscritos).")
-    }
+data class Formação(val nome: String, var conteudos: List<ConteudoEducacional>) {
+
+    val formacao = Formação("Desenvolvimento Android", listOf(contEdu1, contEdu2, contEdu3))
 }
 
 fun main() {
-    val usuarios = Usuários("mopa,1")
+    val usuarios = Usuários("mopa,", 1)
     
     usuarios.matricular(usuarios)
     println(usuarios)
